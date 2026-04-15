@@ -84,9 +84,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                <CardHeader className="pb-2">
-                  <p className="text-xs text-muted-foreground mb-1">{p.role}</p>
-                  <CardTitle className="text-lg">{p.title}</CardTitle>
+                <CardHeader className="pb-2 pt-2">
                 </CardHeader>
 
                 <CardContent className="flex-1">
