@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Sobre Mí", href: "#about" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Contacto", href: "#contact" },
-];
+import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { useI18n } from "@/lib/i18n";
+import { useTheme } from "@/lib/theme";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { t, locale, toggleLocale } = useI18n();
+  const { theme, toggleTheme } = useTheme();
+
+  const navLinks = [
+    { label: t.nav.home, href: "#hero" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   const scrollTo = (href: string) => {
     setOpen(false);
@@ -26,7 +31,7 @@ export default function Navbar() {
         </button>
 
         {/* Desktop */}
-        <ul className="hidden gap-8 md:flex">
+        <ul className="hidden gap-8 md:flex items-center">
           {navLinks.map((l) => (
             <li key={l.href}>
               <button
@@ -39,10 +44,42 @@ export default function Navbar() {
           ))}
         </ul>
 
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            onClick={toggleLocale}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            aria-label="Toggle language"
+          >
+            <Globe size={16} />
+            {locale === "es" ? "EN" : "ES"}
+          </button>
+        </div>
+
         {/* Mobile toggle */}
-        <button className="text-foreground md:hidden" onClick={() => setOpen(!open)}>
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            onClick={toggleLocale}
+            className="p-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Globe size={18} />
+          </button>
+          <button className="text-foreground" onClick={() => setOpen(!open)}>
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

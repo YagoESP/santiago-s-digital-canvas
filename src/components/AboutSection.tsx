@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Code, Globe, ShoppingCart, Database, Terminal, Palette } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 const skills = [
   { name: "HTML5", icon: <Code size={14} /> },
@@ -25,6 +26,8 @@ const fadeUp = {
 };
 
 export default function AboutSection() {
+  const { t } = useI18n();
+
   return (
     <section id="about" className="py-24 px-6">
       <div className="mx-auto max-w-4xl">
@@ -34,7 +37,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="text-3xl font-bold text-center mb-4"
         >
-          Sobre Mí & <span className="text-gradient">Tech Stack</span>
+          {t.about.title1} <span className="text-gradient">{t.about.title2}</span>
         </motion.h2>
 
         <motion.p
@@ -44,10 +47,7 @@ export default function AboutSection() {
           transition={{ delay: 0.1 }}
           className="mx-auto max-w-2xl text-center text-muted-foreground leading-relaxed mb-12"
         >
-          Soy un desarrollador web junior con un enfoque práctico y orientado a resultados.
-          Mi experiencia previa en atención al cliente me ha dado una visión comercial única
-          que aplico en cada proyecto: entiendo lo que el usuario final necesita y lo traduzco
-          en interfaces intuitivas que convierten. Siempre aprendiendo, siempre construyendo.
+          {t.about.bio}
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-3">

@@ -1,7 +1,11 @@
+import { useI18n } from "@/lib/i18n";
+
 export default function Footer() {
+  const { t } = useI18n();
+
   return (
     <footer className="border-t border-border/50 py-8 text-center text-sm text-muted-foreground">
-      <p>Creado por Santiago García G. — 2026</p>
+      <p>{t.footer.credit}</p>
     </footer>
   );
 }
