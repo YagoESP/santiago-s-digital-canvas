@@ -69,16 +69,9 @@ export default function ProjectsSection() {
                   </Link>
                 </div>
 
-                <div className="flex items-center gap-3 px-6 pt-4">
-                  <img
-                    src={projectLogos[i]}
-                    alt={`Logo ${p.title}`}
-                    className="h-10 w-10 rounded-lg object-contain bg-muted p-1 shadow-sm shrink-0"
-                  />
-                  <div>
-                    <p className="text-xs text-muted-foreground">{p.role}</p>
-                    <CardTitle className="text-lg">{p.title}</CardTitle>
-                  </div>
+                <div className="px-6 pt-4">
+                  <p className="text-xs text-muted-foreground">{p.role}</p>
+                  <CardTitle className="text-lg">{p.title}</CardTitle>
                 </div>
 
                 <CardHeader className="pb-2 pt-2">
