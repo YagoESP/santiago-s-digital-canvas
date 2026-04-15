@@ -9,8 +9,12 @@ import { useI18n } from "@/lib/i18n";
 import limpiezasImg from "@/assets/projects/limpiezas-alicia.jpg";
 import terraSalImg from "@/assets/projects/terra-sal.jpg";
 import islaSetupImg from "@/assets/projects/isla-setup.jpg";
+import logoLimpiezas from "@/assets/projects/logo-limpiezas-alicia.png";
+import logoTerraSal from "@/assets/projects/logo-terra-sal.png";
+import logoIslaSetup from "@/assets/projects/logo-islasetup.png";
 
 const projectImages = [limpiezasImg, terraSalImg, islaSetupImg];
+const projectLogos = [logoLimpiezas, logoTerraSal, logoIslaSetup];
 const projectSlugs = ["limpiezas-alicia", "terra-sal", "islasetup"] as const;
 
 export default function ProjectsSection() {
