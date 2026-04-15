@@ -1,4 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { I18nProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/lib/theme";
 
 import appCss from "../styles.css?url";
 
@@ -34,17 +36,9 @@ export const Route = createRootRoute({
       { title: "Santiago García G. | Desarrollador Web Junior" },
       { name: "description", content: "Portfolio de Santiago García G. — Desarrollador Web Junior especializado en Front-End, WordPress y Shopify en Palma de Mallorca." },
       { name: "author", content: "Santiago García G." },
-      { property: "og:title", content: "Santiago García G. | Desarrollador Web Junior" },
-      { property: "og:description", content: "Portfolio de Santiago García G. — Desarrollador Web Junior especializado en Front-End, WordPress y Shopify." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
     ],
   }),
   shellComponent: RootShell,
@@ -54,7 +48,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
@@ -67,5 +61,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <ThemeProvider>
+      <I18nProvider>
+        <Outlet />
+      </I18nProvider>
+    </ThemeProvider>
+  );
 }
