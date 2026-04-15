@@ -28,7 +28,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+          className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl"
         >
           {t.hero.greeting}{" "}
           <span className="text-gradient">{t.hero.name}</span>

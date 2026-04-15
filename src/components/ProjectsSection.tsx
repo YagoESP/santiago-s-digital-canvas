@@ -9,8 +9,12 @@ import { useI18n } from "@/lib/i18n";
 import limpiezasImg from "@/assets/projects/limpiezas-alicia.jpg";
 import terraSalImg from "@/assets/projects/terra-sal.jpg";
 import islaSetupImg from "@/assets/projects/isla-setup.jpg";
+import logoLimpiezas from "@/assets/projects/logo-limpiezas-alicia.png";
+import logoTerraSal from "@/assets/projects/logo-terra-sal.png";
+import logoIslaSetup from "@/assets/projects/logo-islasetup.png";
 
 const projectImages = [limpiezasImg, terraSalImg, islaSetupImg];
+const projectLogos = [logoLimpiezas, logoTerraSal, logoIslaSetup];
 const projectSlugs = ["limpiezas-alicia", "terra-sal", "islasetup"] as const;
 
 export default function ProjectsSection() {
@@ -56,7 +60,12 @@ export default function ProjectsSection() {
                     height={512}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                   <img
+                     src={projectLogos[i]}
+                     alt={`Logo ${p.title}`}
+                     className="absolute top-3 left-3 h-10 w-10 rounded-lg object-contain bg-background/80 p-1 shadow-sm"
+                   />
                   <Link
                     to="/caso/$slug"
                     params={{ slug: projectSlugs[i] }}
