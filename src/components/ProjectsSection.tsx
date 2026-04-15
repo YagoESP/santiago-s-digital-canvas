@@ -51,12 +51,15 @@ export default function ProjectsSection() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
             >
               <Card className="group h-full flex flex-col overflow-hidden border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_var(--glow)] hover:-translate-y-1">
-                <div className="relative overflow-hidden bg-muted/30 flex items-center justify-center h-48">
+                
+                {/* Logo ocupa toda la zona superior de la carta */}
+                <div className="relative overflow-hidden bg-muted/30 h-48">
                   <img
                     src={projectLogos[i]}
                     alt={`Logo ${p.title}`}
                     loading="lazy"
-                    className="h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    style={i === 1 ? { mixBlendMode: "multiply" } : undefined}
                   />
                   <Link
                     to="/caso/$slug"
@@ -69,6 +72,7 @@ export default function ProjectsSection() {
                   </Link>
                 </div>
 
+                {/* Título sin logo duplicado */}
                 <div className="px-6 pt-4">
                   <p className="text-xs text-muted-foreground">{p.role}</p>
                   <CardTitle className="text-lg">{p.title}</CardTitle>
