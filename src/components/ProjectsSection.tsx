@@ -51,16 +51,13 @@ export default function ProjectsSection() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
             >
               <Card className="group h-full flex flex-col overflow-hidden border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_var(--glow)] hover:-translate-y-1">
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden bg-muted/30 flex items-center justify-center h-48">
                   <img
-                    src={projectImages[i]}
-                    alt={`Mockup del proyecto ${p.title}`}
+                    src={projectLogos[i]}
+                    alt={`Logo ${p.title}`}
                     loading="lazy"
-                    width={800}
-                    height={512}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
                   <Link
                     to="/caso/$slug"
                     params={{ slug: projectSlugs[i] }}
