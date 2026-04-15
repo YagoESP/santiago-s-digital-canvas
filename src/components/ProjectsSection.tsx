@@ -60,12 +60,7 @@ export default function ProjectsSection() {
                     height={512}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
-                   <img
-                     src={projectLogos[i]}
-                     alt={`Logo ${p.title}`}
-                     className="absolute top-3 left-3 h-10 w-10 rounded-lg object-contain bg-background/80 p-1 shadow-sm"
-                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
                   <Link
                     to="/caso/$slug"
                     params={{ slug: projectSlugs[i] }}
@@ -75,6 +70,18 @@ export default function ProjectsSection() {
                       <Eye size={18} /> {t.projects.viewDetail}
                     </span>
                   </Link>
+                </div>
+
+                <div className="flex items-center gap-3 px-6 pt-4">
+                  <img
+                    src={projectLogos[i]}
+                    alt={`Logo ${p.title}`}
+                    className="h-10 w-10 rounded-lg object-contain bg-muted p-1 shadow-sm shrink-0"
+                  />
+                  <div>
+                    <p className="text-xs text-muted-foreground">{p.role}</p>
+                    <CardTitle className="text-lg">{p.title}</CardTitle>
+                  </div>
                 </div>
 
                 <CardHeader className="pb-2">
